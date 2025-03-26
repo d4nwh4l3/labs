@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>APOD - History</title>
+</head>
+<body>
+    <h1>Search for a Past APOD</h1>
+    <form method="post">
+        <input type="date" name="date" required>
+        <button type="submit">Get APOD</button>
+    </form>
+    
+    {% if apod %}
+    <h2>{{ apod.title }}</h2>
+    <img src="{{ apod.url }}" alt="Astronomy Picture of the Day">
+    <p>{{ apod.explanation }}</p>
+    <p>Date: {{ apod.date }}</p>
+    <p>Copyright: {{ apod.copyright if apod.copyright else 'Public Domain' }}</p>
+    {% endif %}
+
+    <br>
+    <a href="/">Back to Home</a>
+</body>
+</html>
